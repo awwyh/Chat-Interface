@@ -1,0 +1,232 @@
+/* src/components/Layout/Layout.module.css */
+.layout {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .messagesContainer {
+    flex: 1;
+    padding: 10px 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 70px;
+  }
+
+  .photoMessage {
+    max-width: 80%;
+    margin: 8px 15px;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    align-self: flex-start;
+    position: relative;
+  }
+  
+  .photoMessage.userMessage {
+    background-color: #e3f2fd;
+    align-self: flex-end;
+  }
+  
+  .photo {
+    max-width: 100%;
+    max-height: 600px;
+    border-radius: 8px;
+    display: block;
+  }
+  
+  .photoMessage .time {
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
+    font-size: 11px;
+    color: #999;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+  
+  .photoMessage.userMessage .time {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .photoMessage {
+    max-width: 80%;
+    margin: 8px 15px;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    align-self: flex-start;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .photo {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.2s;
+  }
+  
+  .photo:hover {
+    transform: scale(1.02);
+  }
+  
+  .fullscreenOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  
+  .fullscreenContent {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .fullscreenImage {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    cursor: default;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  
+  .fullscreenOverlay {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @media (max-width: 768px) {
+    .photo {
+      max-height: 200px;
+    }
+    
+    .fullscreenContent {
+      max-width: 95%;
+      max-height: 95%;
+    }
+    
+    .closeButton {
+      top: -30px;
+      right: -20px;
+    }
+  }
+
+
+  .voiceButton {
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  .voiceButton:hover {
+    background-color: rgba(130, 92, 220, 0.1);
+  }
+  
+  .recording {
+    background-color: rgba(255, 82, 82, 0.1);
+    animation: pulse 1.5s infinite;
+  }
+  
+  .recordingInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 12px;
+    width: 100%;
+  }
+  
+  .recordingIndicator {
+    width: 12px;
+    height: 12px;
+    background-color: #ff5252;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+  }
+  
+  .recordingTime {
+    color: #ff5252;
+    font-weight: 500;
+    min-width: 45px;
+  }
+  
+  .cancelRecordingButton {
+    color: #ff5252;
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .cancelRecordingButton:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+  
+  .audioMessage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 16px;
+    max-width: 280px;
+  }
+  
+  .audioWaveform {
+    flex-grow: 1;
+    height: 32px;
+    background: linear-gradient(to bottom, #825CDC 50%, #b599ff 50%);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 32'%3E%3Cpath d='M0 16 L100 16' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 32'%3E%3Cpath d='M0 16 L100 16' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+  }
+
+  .photoCaption {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+    word-wrap: break-word;
+  }
