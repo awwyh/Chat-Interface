@@ -1,0 +1,297 @@
+.container {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputField {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+}
+
+.sendButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+.photoButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.photoButton svg {
+  width: 24px;
+  height: 24px;
+  fill: #825CDC;
+}
+
+.voiceButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  width: 40px;
+  height: 40px;
+}
+
+.voiceButton svg {
+  width: 24px;
+  height: 24px;
+  fill: #825CDC;
+}
+
+.voiceButton:hover {
+  transform: scale(1.1);
+}
+
+.voiceButton.recording {
+  background-color: #ffebee;
+  border-radius: 50%;
+}
+
+voiceButton:not(.visible) {
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+.sendButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.inputField:focus {
+  border-color: #825CDC;
+  background-color: white;
+}
+
+.recordingInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #ffebee;
+  border-radius: 24px;
+  position: relative;
+}
+
+.recordingIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff5252;
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.recordingTime {
+  font-size: 14px;
+  color: #d32f2f;
+  margin-right: auto;
+}
+
+.cancelRecordingButton {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cancelRecordingButton:hover {
+  background-color: rgba(211, 47, 47, 0.1);
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.voiceWave {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 82, 82, 0.3);
+  animation: pulseWave 1.5s infinite;
+  z-index: -1;
+}
+
+@keyframes pulseWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.horizontalWave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.bar {
+  width: 4px;
+  height: 100%;
+  background-color: #ff5252;
+  animation: waveAnimation 1s infinite ease-in-out;
+}
+
+.bar:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.bar:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.bar:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes waveAnimation {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 16px;
+  }
+}
+
+.photoPreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photoContainer {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.removePhotoButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.confirmButton {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #825CDC;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirmButton:hover {
+  background-color: #6b47b6;
+}
+
+.photoCaption {
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.photoGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.photoGroup .photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.photoGroup .photo:hover {
+  transform: scale(1.05);
+}
+
