@@ -1,0 +1,39 @@
+.searchBarOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: #3E2F44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transform: translateY(-100%);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+.searchBarOverlay.active {
+  transform: translateY(0);
+}
+
+.searchBarInput {
+  width: 100%;
+  max-width: 500px;
+  min-width: 0;
+  box-sizing: border-box;
+  border-radius: 0px 0px 12px 12px;
+  padding: 12px 18px;
+  font-size: 17px;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 1px 8px rgba(130,92,220,0.10);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.searchBarInput:focus {
+  border-color: #825CDC;
+  box-shadow: 0 2px 12px rgba(130, 92, 220, 0.15);
+}

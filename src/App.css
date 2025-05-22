@@ -1,0 +1,16 @@
+/* src/App.css */
+.app {
+  background: linear-gradient(
+    180deg,
+    #c65ef6 0%,
+    #aa3bff 50%,
+    #9333dd 73%,
+    #b377e0 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,40 @@
+/* src/components/Message/Message.module.css */
+.message {
+  max-width: 80%;
+  margin: 8px 15px;
+  padding: 10px 15px;
+  border-radius: 18px;
+  align-self: flex-start;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+}
+
+.userMessage {
+  background-color: #B798FF;
+  align-self: flex-end;
+  
+}
+
+.content {
+  position: relative;
+  padding-right: 50px;
+}
+
+.content p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.time {
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  font-size: 11px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.userMessage .time {
+  color: rgba(0, 0, 0, 0.4);
+}

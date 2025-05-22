@@ -1,0 +1,429 @@
+.container {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: #3F2D45;
+  z-index: 100;
+  box-sizing: border-box;
+  padding: 18px 12px 18px 12px;
+}
+
+.video {
+  max-width: 200px;
+  border-radius: 12px;
+  margin: 4px 0;
+}
+
+.fullscreenVideo {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 16px;
+  background: #000;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputField {
+  flex-grow: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 16px;
+  background: #fff;
+  font-size: 16px;
+  color: #222;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.sendButton {
+  margin-left: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.photoButton:hover,
+.sendButton:hover,
+.voiceButton:hover {
+  background: rgba(130, 92, 220, 0.08);
+}
+
+.photoButton svg {
+  width: 24px;
+  height: 24px;
+  fill: #825CDC;
+  display: block;
+}
+
+.voiceButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  flex-shrink: 0;
+  transition: transform 0.2s, background 0.15s;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+}
+
+.voiceButton svg {
+  width: 24px;
+  height: 24px;
+  fill: #825CDC;
+  display: block;
+}
+
+.voiceButton:hover {
+  transform: scale(1.1);
+  background: rgba(130, 92, 220, 0.08);
+}
+
+.voiceButton.recording {
+  animation: pulse 1s infinite;
+  background: rgba(255,82,82,0.12);
+  border-radius: 50%;
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px !important;
+  min-height: 56px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.2s, height 0.2s;
+  box-shadow: 0 0 0 0 rgba(255,82,82, 0.7);
+}
+
+.voiceButton.recording svg {
+  width: 32px !important;
+  height: 32px !important;
+  transition: width 0.2s, height 0.2s;
+}
+
+voiceButton:not(.visible) {
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.sendButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.inputField:focus {
+  border-color: #825CDC;
+  background-color: white;
+}
+
+.recordingInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #ffebee;
+  border-radius: 24px;
+  position: relative;
+}
+
+.recordingIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff5252;
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.recordingTime {
+  font-size: 14px;
+  color: #d32f2f;
+  margin-right: auto;
+}
+
+.cancelRecordingButton {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cancelRecordingButton:hover {
+  background-color: rgba(211, 47, 47, 0.1);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,82,82, 0.7);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(255,82,82, 0.18);
+    transform: scale(1.18);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255,82,82, 0.7);
+    transform: scale(1);
+  }
+}
+
+.voiceWave {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 82, 82, 0.3);
+  animation: pulseWave 1.5s infinite;
+  z-index: -1;
+}
+
+@keyframes pulseWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.horizontalWave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.bar {
+  width: 4px;
+  height: 100%;
+  background-color: #ff5252;
+  animation: waveAnimation 1s infinite ease-in-out;
+}
+
+.bar:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.bar:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.bar:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes waveAnimation {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 16px;
+  }
+}
+
+.photoPreview {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.photoContainer {
+  position: relative;
+}
+
+.photo {
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.removePhotoButton {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #825CDC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.confirmButton {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #825CDC;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirmButton:hover {
+  background-color: #6b47b6;
+}
+
+.photoCaption {
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.photoGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.photoGroup .photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.photoGroup .photo:hover {
+  transform: scale(1.05);
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputFieldWrapper {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.inputField {
+  height: 15px;
+  width: 100%;
+  padding: 12px 44px 11.5px 16px; 
+  border: none;
+  border-radius: 20px;
+  background: #ededed;
+  font-size: 16px;
+  color: #222;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.sendButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.sendButton:hover {
+  background: rgba(130, 92, 220, 0.08);
+}
+
+.timer {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff5252;
+  margin-right: 18px;
+  min-width: 70px;
+  text-align: right;
+  font-family: monospace;
+  align-self: center;
+  user-select: none;
+  animation: timerPulse 1s infinite;
+}
+
+@keyframes timerPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.swipeHint {
+  color: #888;
+  font-size: 1rem;
+  margin-left: 18px;
+  align-self: center;
+  user-select: none;
+  font-family: inherit;
+  animation: hintFade 1.5s infinite;
+}
+
+@keyframes hintFade {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
